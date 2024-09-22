@@ -4,6 +4,9 @@
             <router-link :to="{ name: 'home' }" class="btn btn-outline-light">Home</router-link>
 
             <ul class="list-unstyled row mb-0">
+                <li class="col" v-if="isLoggedIn">
+                    <router-link class="btn btn-light text-nowrap" :to="{ name: 'messages' }">All Messages</router-link>
+                </li>
                 <li class="col" v-if="!isLoggedIn">
                     <router-link class="btn btn-light" :to="{ name: 'auth' }">Login</router-link>
                 </li>

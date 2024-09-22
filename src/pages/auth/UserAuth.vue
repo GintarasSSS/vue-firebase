@@ -21,7 +21,7 @@
 
                 <div class="mb-3" v-if="errors.length">
                     <div class="alert alert-danger">
-                        <div v-for="(error, key)  in errors" :key="key">{{ error }}</div>
+                        <div v-for="(error, key) in errors" :key="key">{{ error }}</div>
                     </div>
                 </div>
 

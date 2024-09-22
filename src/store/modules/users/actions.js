@@ -7,9 +7,7 @@ export default {
         const url = `https://vue-firebase-1c169-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}.json?auth=${token}`;
 
         try {
-            await axios.put(url, {
-                body: payload
-            });
+            await axios.put(url, payload);
 
             context.commit(
                 'registerUser',
@@ -36,7 +34,7 @@ export default {
                 for (const key in usersList.data) {
                     users.push({
                         id: key,
-                        ...usersList.data[key].body
+                        ...usersList.data[key]
                     });
                 }
             }

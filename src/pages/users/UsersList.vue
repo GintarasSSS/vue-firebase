@@ -20,7 +20,7 @@
                 <base-card v-for="user in filteredUsers" :key="user.id" class="mb-1" :class="getBorderColor(user.color)">
                     <div class="d-flex flex-nowrap justify-content-between align-items-center">
                         <h5 class="card-title mb-0">{{ user.name }} {{ user.surname }}</h5>
-                        <router-link :to="contactLink(user.id)" class="btn" :class="getButtonColor(user.color)">Write a Message</router-link>
+                        <router-link :to="{ name: 'contact', params: { id: user.id } }" class="btn" :class="getButtonColor(user.color)">Write a Message</router-link>
                     </div>
                 </base-card>
             </div>
@@ -34,7 +34,6 @@
 <script>
     import {computed, reactive} from "vue";
     import {useStore} from "vuex";
-    import {useRoute} from "vue-router";
 
     import UserFilter from "@/pages/users/UserFilter.vue";
 
@@ -44,7 +43,6 @@
         },
         setup() {
             const store = useStore();
-            const route = useRoute();
 
             const filters = reactive({
                 primary: true,
@@ -76,10 +74,6 @@
                 return 'btn-' + color;
             };
 
-            const contactLink = (id) => {
-                return route.path + `/user/${id}/contact`;
-            };
-
             const setFilter = (_filters) => {
                 for (const key in _filters) {
                     filters[key] = _filters[key];
@@ -96,7 +90,6 @@
                 loadUsers,
                 getBorderColor,
                 getButtonColor,
-                contactLink,
                 setFilter,
                 isUserRegistered,
                 isLoggedIn,
