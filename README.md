@@ -22,3 +22,13 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### FireBase Setup
+
+#### DB Permissions
+
+![img_1.png](img_1.png)
+
+#### Project settings
+
+![img.png](img.png)
